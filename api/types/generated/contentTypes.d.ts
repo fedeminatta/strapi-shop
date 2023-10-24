@@ -691,15 +691,15 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.Text;
     img: Attribute.Media;
-    products: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::product.product'
-    >;
     sub_categories: Attribute.Relation<
       'api::category.category',
       'manyToMany',
       'api::sub-category.sub-category'
+    >;
+    products: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product.product'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -724,7 +724,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   info: {
     singularName: 'product';
     pluralName: 'products';
-    displayName: 'product';
+    displayName: 'Product';
     description: '';
   };
   options: {
@@ -733,9 +733,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
+    price: Attribute.Decimal;
     img: Attribute.Media;
     img2: Attribute.Media;
-    price: Attribute.Decimal;
     isNew: Attribute.Boolean & Attribute.DefaultTo<false>;
     categories: Attribute.Relation<
       'api::product.product',
@@ -779,15 +779,15 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    products: Attribute.Relation<
-      'api::sub-category.sub-category',
-      'manyToMany',
-      'api::product.product'
-    >;
     categories: Attribute.Relation<
       'api::sub-category.sub-category',
       'manyToMany',
       'api::category.category'
+    >;
+    products: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'manyToMany',
+      'api::product.product'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
