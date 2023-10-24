@@ -15,10 +15,10 @@
     "title": {
       "type": "string"
     },
-    "pruducts": {
+    "products": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::pruduct.pruduct",
+      "target": "api::product.product",
       "mappedBy": "sub_categories"
     },
     "categories": {

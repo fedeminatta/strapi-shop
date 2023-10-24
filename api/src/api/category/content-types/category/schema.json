@@ -18,19 +18,14 @@
       "type": "text"
     },
     "img": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+      "allowedTypes": ["images", "files", "videos", "audios"],
       "type": "media",
       "multiple": false
     },
-    "pruducts": {
+    "products": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::pruduct.pruduct",
+      "target": "api::product.product",
       "mappedBy": "categories"
     },
     "sub_categories": {

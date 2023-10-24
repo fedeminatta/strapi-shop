@@ -691,10 +691,10 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.Text;
     img: Attribute.Media;
-    pruducts: Attribute.Relation<
+    products: Attribute.Relation<
       'api::category.category',
       'manyToMany',
-      'api::pruduct.pruduct'
+      'api::product.product'
     >;
     sub_categories: Attribute.Relation<
       'api::category.category',
@@ -719,12 +719,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiPruductPruduct extends Schema.CollectionType {
-  collectionName: 'pruducts';
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
   info: {
-    singularName: 'pruduct';
-    pluralName: 'pruducts';
-    displayName: 'pruduct';
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'product';
     description: '';
   };
   options: {
@@ -738,26 +738,27 @@ export interface ApiPruductPruduct extends Schema.CollectionType {
     price: Attribute.Decimal;
     isNew: Attribute.Boolean & Attribute.DefaultTo<false>;
     categories: Attribute.Relation<
-      'api::pruduct.pruduct',
+      'api::product.product',
       'manyToMany',
       'api::category.category'
     >;
     sub_categories: Attribute.Relation<
-      'api::pruduct.pruduct',
+      'api::product.product',
       'manyToMany',
       'api::sub-category.sub-category'
     >;
+    type: Attribute.Enumeration<['normal', 'featured', 'trending']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::pruduct.pruduct',
+      'api::product.product',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::pruduct.pruduct',
+      'api::product.product',
       'oneToOne',
       'admin::user'
     > &
@@ -778,10 +779,10 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    pruducts: Attribute.Relation<
+    products: Attribute.Relation<
       'api::sub-category.sub-category',
       'manyToMany',
-      'api::pruduct.pruduct'
+      'api::product.product'
     >;
     categories: Attribute.Relation<
       'api::sub-category.sub-category',
@@ -823,7 +824,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
-      'api::pruduct.pruduct': ApiPruductPruduct;
+      'api::product.product': ApiProductProduct;
       'api::sub-category.sub-category': ApiSubCategorySubCategory;
     }
   }
