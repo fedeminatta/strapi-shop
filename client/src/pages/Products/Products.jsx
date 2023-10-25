@@ -6,30 +6,44 @@ import useFetch from '../../hooks/useFetch';
 
 const Products = () => {
     const catId = parseInt(useParams().id);
-    const [maxPrice, setMaxPrice] = useState(1000);
-    const [sort, setSort] = useState(null);
+    const [maxPrice, setMaxPrice] = useState(300);
+    const [tempMaxPrice, setTempMaxPrice] = useState(300);
+    const [sort, setSort] = useState('desc');
+    const [selectedSubCats, setSelectedSubCats] = useState([]);
 
     const { data, loading, error } = useFetch(
         `/sub-categories?[filters][categories][id][$eq]=${catId}`
     );
-    console.log(data);
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        const isChecked = e.target.checked;
+
+        setSelectedSubCats(
+            isChecked
+                ? [...selectedSubCats, value]
+                : selectedSubCats.filter((item) => item !== value)
+        );
+    };
+
     return (
         <div className={styles.products}>
             <div className={styles.left}>
                 <div className={styles.filterItem}>
                     <h2>Product Categories</h2>
-                    <div className={styles.inputItem}>
-                        <input type="checkbox" name="1" value={1} />
-                        <label htmlFor="1">Shoes</label>
-                    </div>
-                    <div className={styles.inputItem}>
-                        <input type="checkbox" name="2" value={2} />
-                        <label htmlFor="2">Skirts</label>
-                    </div>
-                    <div className={styles.inputItem}>
-                        <input type="checkbox" name="3" value={3} />
-                        <label htmlFor="3">Coats</label>
-                    </div>
+                    {data?.map((item) => (
+                        <div className={styles.inputItem} key={item.id}>
+                            <input
+                                type="checkbox"
+                                id={item.id}
+                                value={item.id}
+                                onChange={(e) => handleChange(e)}
+                            />
+                            <label htmlFor={item.id}>
+                                {item.attributes.title}
+                            </label>
+                        </div>
+                    ))}
                 </div>
                 <div className={styles.filterItem}>
                     <h2>Filter by price</h2>
@@ -38,10 +52,16 @@ const Products = () => {
                         <input
                             type="range"
                             min={0}
-                            max={1000}
-                            onChange={(e) => setMaxPrice(e.target.value)}
+                            max={300}
+                            onChange={(e) => setTempMaxPrice(e.target.value)}
                         />
-                        <span>{maxPrice}</span>
+                        <span>{tempMaxPrice}</span>
+                        <button
+                            className={styles.btnPrice}
+                            onClick={() => setMaxPrice(tempMaxPrice)}
+                        >
+                            Filter
+                        </button>
                     </div>
                 </div>
                 <div className={styles.filterItem}>
@@ -74,7 +94,12 @@ const Products = () => {
                     className={styles.catImg}
                     alt=""
                 />
-                <List catId={catId} maxPrice={maxPrice} sort={sort} />
+                <List
+                    catId={catId}
+                    maxPrice={maxPrice}
+                    sort={sort}
+                    subCats={selectedSubCats}
+                />
             </div>
         </div>
     );

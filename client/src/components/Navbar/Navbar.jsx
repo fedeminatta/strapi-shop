@@ -25,14 +25,15 @@ const Navbar = () => {
                     </div>
                     <div className={styles.item}>
                         <Link className="link" to="/products/1">
-                            Women
+                            Men
                         </Link>
                     </div>
                     <div className={styles.item}>
                         <Link className="link" to="/products/2">
-                            Men
+                            Women
                         </Link>
                     </div>
+
                     <div className={styles.item}>
                         <Link className="link" to="/products/3">
                             Children

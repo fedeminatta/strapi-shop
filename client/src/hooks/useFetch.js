@@ -7,7 +7,6 @@ const useFetch = (url) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        const apiToken = import.meta.env.VITE_API_TOKEN;
         const fetchData = async () => {
             try {
                 setLoading(true);

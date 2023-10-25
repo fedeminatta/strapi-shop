@@ -3,34 +3,49 @@ import styles from './Product.module.sass';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BalanceIcon from '@mui/icons-material/Balance';
+import useFetch from '../../hooks/useFetch';
+import { useParams } from 'react-router-dom';
 
 const Product = () => {
-    const [selectedImg, setSelectedImg] = useState(0);
-    const [quantity, setQuantity] = useState(0);
+    const id = useParams().id; // es el id que viene de los parametros de la url (lo usamos en la paginacion)
+    const [selectedImg, setSelectedImg] = useState('img');
+    const [quantity, setQuantity] = useState(1);
 
     if (quantity < 1) setQuantity(1);
 
-    const images = [
-        'https://images.pexels.com/photos/769732/pexels-photo-769732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/1930645/pexels-photo-1930645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    ];
-    return (
+    const { data, loading } = useFetch(`/products/${id}?populate=*`);
+
+    const img1 =
+        import.meta.env.VITE_UPLOAD_URL +
+            data?.attributes?.img?.data?.attributes?.url || '';
+
+    const img2 =
+        import.meta.env.VITE_UPLOAD_URL +
+            data?.attributes?.img2?.data?.attributes?.url || '';
+
+    const imgSelected =
+        import.meta.env.VITE_UPLOAD_URL +
+            data?.attributes?.[selectedImg].data?.attributes?.url || '';
+
+    return loading ? (
+        'loading...'
+    ) : (
         <div className={styles.product}>
             <div className={styles.left}>
                 <div className={styles.images}>
                     <img
-                        src={images[0]}
+                        src={img1}
                         alt=""
-                        onClick={() => setSelectedImg(0)}
+                        onClick={() => setSelectedImg('img')}
                     />
                     <img
-                        src={images[1]}
+                        src={img2}
                         alt=""
-                        onClick={() => setSelectedImg(1)}
+                        onClick={() => setSelectedImg('img2')}
                     />
                 </div>
                 <div className={styles.mainImg}>
-                    <img src={images[selectedImg]} alt="" />
+                    <img src={imgSelected} alt="" />
                 </div>
             </div>
 
@@ -84,4 +99,5 @@ const Product = () => {
         </div>
     );
 };
+
 export default Product;
