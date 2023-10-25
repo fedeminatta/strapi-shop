@@ -2,12 +2,17 @@ import { useParams } from 'react-router-dom';
 import List from '../../components/List/List';
 import styles from './Products.module.sass';
 import { useState } from 'react';
+import useFetch from '../../hooks/useFetch';
 
 const Products = () => {
     const catId = parseInt(useParams().id);
     const [maxPrice, setMaxPrice] = useState(1000);
     const [sort, setSort] = useState(null);
 
+    const { data, loading, error } = useFetch(
+        `/sub-categories?[filters][categories][id][$eq]=${catId}`
+    );
+    console.log(data);
     return (
         <div className={styles.products}>
             <div className={styles.left}>
