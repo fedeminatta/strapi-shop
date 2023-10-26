@@ -5,6 +5,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BalanceIcon from '@mui/icons-material/Balance';
 import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartReducer';
 
 const Product = () => {
     const id = useParams().id; // es el id que viene de los parametros de la url (lo usamos en la paginacion)
@@ -26,6 +28,8 @@ const Product = () => {
     const imgSelected =
         import.meta.env.VITE_UPLOAD_URL +
             data?.attributes?.[selectedImg].data?.attributes?.url || '';
+
+    const dispatch = useDispatch();
 
     return loading ? (
         'loading...'
@@ -50,14 +54,9 @@ const Product = () => {
             </div>
 
             <div className={styles.right}>
-                <h1>Title</h1>
-                <span className={styles.price}>$199</span>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Numquam adipisci sapiente, ipsa modi omnis officiis nulla
-                    perspiciatis maxime ducimus possimus sint id veniam? Eius at
-                    quam nam minus reiciendis tenetur.
-                </p>
+                <h1>{data?.attributes?.title}</h1>
+                <span className={styles.price}>${data?.attributes?.price}</span>
+                <p>{data?.attributes?.description}</p>
 
                 <div className={styles.quantity}>
                     <button onClick={() => setQuantity((prev) => prev - 1)}>
@@ -69,7 +68,21 @@ const Product = () => {
                     </button>
                 </div>
 
-                <button className={styles.add}>
+                <button
+                    className={styles.add}
+                    onClick={() =>
+                        dispatch(
+                            addToCart({
+                                id: data.id,
+                                title: data.attributes.title,
+                                description: data.attributes.description,
+                                price: data.attributes.price,
+                                img: img1,
+                                quantity,
+                            })
+                        )
+                    }
+                >
                     <AddShoppingCartIcon /> ADD TO CART
                 </button>
 
