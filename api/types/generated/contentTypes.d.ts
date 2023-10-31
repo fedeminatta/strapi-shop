@@ -683,6 +683,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -691,15 +692,15 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.Text;
     img: Attribute.Media;
-    sub_categories: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::sub-category.sub-category'
-    >;
     products: Attribute.Relation<
       'api::category.category',
       'manyToMany',
       'api::product.product'
+    >;
+    sub_categories: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::sub-category.sub-category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -725,7 +726,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     singularName: 'order';
     pluralName: 'orders';
     displayName: 'order';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -756,7 +756,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   info: {
     singularName: 'product';
     pluralName: 'products';
-    displayName: 'Product';
+    displayName: 'product';
     description: '';
   };
   options: {
@@ -765,10 +765,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    price: Attribute.Decimal;
     img: Attribute.Media;
     img2: Attribute.Media;
     isNew: Attribute.Boolean & Attribute.DefaultTo<false>;
+    price: Attribute.Decimal;
     categories: Attribute.Relation<
       'api::product.product',
       'manyToMany',
@@ -811,15 +811,15 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    categories: Attribute.Relation<
-      'api::sub-category.sub-category',
-      'manyToMany',
-      'api::category.category'
-    >;
     products: Attribute.Relation<
       'api::sub-category.sub-category',
       'manyToMany',
       'api::product.product'
+    >;
+    categories: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'manyToMany',
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -4,8 +4,7 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "order",
-    "description": ""
+    "displayName": "order"
   },
   "options": {
     "draftAndPublish": true

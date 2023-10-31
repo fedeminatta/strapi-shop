@@ -4,7 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product",
+    "displayName": "product",
     "description": ""
   },
   "options": {
@@ -17,9 +17,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "price": {
-      "type": "decimal"
     },
     "img": {
       "type": "media",
@@ -46,6 +43,9 @@
     "isNew": {
       "type": "boolean",
       "default": false
+    },
+    "price": {
+      "type": "decimal"
     },
     "categories": {
       "type": "relation",

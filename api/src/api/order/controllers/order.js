@@ -1,7 +1,5 @@
 // @ts-ignore
-const stripe = require("stripe")(
-  "sk_test_51O68nwDTioVtb2gxM9vX45FM1PLD7ShlNbhagMkTFddJ6Zi32MqEulWJr0adBwsrCtq3ANRXC4DAGt0WEZIJWjac00zLxCsere"
-);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 ("use strict");
 
