@@ -12,8 +12,6 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     // @ts-ignore
-    console.log("Datos del cuerpo de la solicitud:", ctx.request.body);
-    // @ts-ignore
     const { products } = ctx.request.body;
 
     const lineItems = await Promise.all(
