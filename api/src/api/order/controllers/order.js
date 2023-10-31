@@ -20,11 +20,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .service("api::product.product")
           .findOne(product.id);
 
-        console.log(product.quantity);
-        console.log(item);
-        console.log(item.id);
-        console.log(item.quantity);
-
         return {
           price_data: {
             currency: "usd",
