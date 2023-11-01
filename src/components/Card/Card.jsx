@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ item }) => {
     const apiUpload = import.meta.env.VITE_UPLOAD_URL;
-    const img = apiUpload + item?.attributes.img.data.attributes.url;
-    const img2 = apiUpload + item?.attributes.img2.data.attributes.url;
+    const img = apiUpload + item?.attributes?.img?.data?.attributes?.url;
+    const img2 = apiUpload + item?.attributes?.img2?.data?.attributes?.url;
+    console.log(item);
     return (
         <Link to={`/product/${item?.id}`}>
             <div className={styles.card}>
