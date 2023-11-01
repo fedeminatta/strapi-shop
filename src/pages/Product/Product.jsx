@@ -17,17 +17,12 @@ const Product = () => {
 
     const { data, loading } = useFetch(`/products/${id}?populate=*`);
 
-    const img1 =
-        import.meta.env.VITE_UPLOAD_URL +
-            data?.attributes?.img?.data?.attributes?.url || '';
+    const img1 = data?.attributes?.img?.data?.attributes?.url || '';
 
-    const img2 =
-        import.meta.env.VITE_UPLOAD_URL +
-            data?.attributes?.img2?.data?.attributes?.url || '';
+    const img2 = data?.attributes?.img2?.data?.attributes?.url || '';
 
     const imgSelected =
-        import.meta.env.VITE_UPLOAD_URL +
-            data?.attributes?.[selectedImg].data?.attributes?.url || '';
+        data?.attributes?.[selectedImg].data?.attributes?.url || '';
 
     const dispatch = useDispatch();
 
