@@ -104,22 +104,19 @@ const Navbar = () => {
                                 Stores
                             </Link>
                         </div>
-                        <div className={styles.icons}>
-                            <SearchIcon />
-                            <PersonOutlineIcon />
-                            <FavoriteBorderIcon />
-                            <div
-                                className={styles.cartIcon}
-                                onClick={() => setOpen(!open)}
-                            >
-                                <ShoppingCartOutlinedIcon />
-                                <span>{products.length}</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                {open && <Cart />}
             </nav>
+            <div className={styles.icons}>
+                <SearchIcon />
+                <PersonOutlineIcon />
+                <FavoriteBorderIcon />
+                <div className={styles.cartIcon} onClick={() => setOpen(!open)}>
+                    <ShoppingCartOutlinedIcon />
+                    <span>{products.length}</span>
+                </div>
+            </div>
+            {open && <Cart />}
         </>
     );
 };
