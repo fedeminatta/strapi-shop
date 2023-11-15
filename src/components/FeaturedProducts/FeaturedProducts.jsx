@@ -11,10 +11,9 @@ const FeaturedProducts = ({ type }) => {
             <div className={styles.top}>
                 <h1>{type} products</h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nesciunt natus expedita, cupiditate illo quaerat modi
-                    provident rem odit voluptates quidem qui laudantium, quam
-                    earum unde at harum animi facilis quo?
+                    Renueva tu estilo con prendas cuidadosamente elegidas para
+                    destacar en cualquier ocasión. Explora lo último en moda con
+                    nuestra exclusiva colección.
                 </p>
             </div>
             <div className={styles.bottom}>
