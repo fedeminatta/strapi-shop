@@ -1,11 +1,17 @@
+.menu
+    display: none !important
+    z-index: 4000px
+
 .navbar
     height: 80px
+    transition: all .3s ease-out
 
     .wrapper
         padding: 10px 30px
         display: flex
         justify-content: space-between
         align-items: center
+        transition: all .3s ease-out
 
         .item
             display: flex
@@ -52,3 +58,39 @@
                         display: flex
                         align-items: center
                         justify-content: center
+
+@media screen and (max-width: 1160px)
+    .navbar
+        position: fixed
+        left: 0
+        top: 0
+        height: 100%
+        z-index: 1000
+        background: #fff
+        width: 300px
+        overflow: hidden
+
+        .wrapper
+            display: flex
+            flex-direction: column
+            flex-wrap: wrap
+            align-items: start
+            width: 100%
+            overflow: hidden
+            .item, .left, .right
+                align-items: start
+                display: flex
+                flex-direction: column
+                flex-wrap: wrap
+
+            .center
+                order: -1
+                margin: 40px 0
+
+    .menu
+        position: fixed
+        left: 20px
+        top: 20px
+        z-index: 4000
+        cursor: pointer
+        display: inline-block !important
