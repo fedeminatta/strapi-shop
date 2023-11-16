@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import Cart from '../Cart/Cart';
 import { useSelector } from 'react-redux';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Fade } from 'react-awesome-reveal';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -43,6 +44,7 @@ const Navbar = () => {
                 className={styles.menu}
                 onClick={() => setMostrarMenu(!mostrarMenu)}
             />
+
             <nav
                 className={styles.navbar}
                 style={{
@@ -53,30 +55,32 @@ const Navbar = () => {
             >
                 <div className={styles.wrapper}>
                     <div className={styles.left}>
-                        <div className={styles.item}>
-                            <img src="/img/usa.png" width="40px" alt="" />
-                            <KeyboardArrowDownIcon />
-                        </div>
-                        <div className={styles.item}>
-                            <span>USD</span>
-                            <KeyboardArrowDownIcon />
-                        </div>
-                        <div className={styles.item}>
-                            <Link className="link" to="/products/1">
-                                Men
-                            </Link>
-                        </div>
-                        <div className={styles.item}>
-                            <Link className="link" to="/products/2">
-                                Women
-                            </Link>
-                        </div>
+                        <Fade triggerOnce cascade damping={0.2}>
+                            <div className={styles.item}>
+                                <img src="/img/usa.png" width="40px" alt="" />
+                                <KeyboardArrowDownIcon />
+                            </div>
+                            <div className={styles.item}>
+                                <span>USD</span>
+                                <KeyboardArrowDownIcon />
+                            </div>
+                            <div className={styles.item}>
+                                <Link className="link" to="/products/1">
+                                    Men
+                                </Link>
+                            </div>
+                            <div className={styles.item}>
+                                <Link className="link" to="/products/2">
+                                    Women
+                                </Link>
+                            </div>
 
-                        <div className={styles.item}>
-                            <Link className="link" to="/products/3">
-                                Children
-                            </Link>
-                        </div>
+                            <div className={styles.item}>
+                                <Link className="link" to="/products/3">
+                                    Children
+                                </Link>
+                            </div>
+                        </Fade>
                     </div>
                     <div className={styles.center}>
                         <Link className="link" to="/">
@@ -84,26 +88,28 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className={styles.right}>
-                        <div className={styles.item}>
-                            <Link className="link" to="/">
-                                Homepage
-                            </Link>
-                        </div>
-                        <div className={styles.item}>
-                            <Link className="link" to="/">
-                                About
-                            </Link>
-                        </div>
-                        <div className={styles.item}>
-                            <Link className="link" to="/">
-                                Contact
-                            </Link>
-                        </div>
-                        <div className={styles.item}>
-                            <Link className="link" to="/">
-                                Stores
-                            </Link>
-                        </div>
+                        <Fade triggerOnce cascade damping={0.2} delay={1000}>
+                            <div className={styles.item}>
+                                <Link className="link" to="/">
+                                    Homepage
+                                </Link>
+                            </div>
+                            <div className={styles.item}>
+                                <Link className="link" to="/">
+                                    About
+                                </Link>
+                            </div>
+                            <div className={styles.item}>
+                                <Link className="link" to="/">
+                                    Contact
+                                </Link>
+                            </div>
+                            <div className={styles.item}>
+                                <Link className="link" to="/">
+                                    Stores
+                                </Link>
+                            </div>
+                        </Fade>
                     </div>
                 </div>
             </nav>
