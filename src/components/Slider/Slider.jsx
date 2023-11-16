@@ -2,15 +2,14 @@ import styles from './Slider.module.sass';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import WestOutlinedIcon from '@mui/icons-material/WestOutlined';
 import { useState } from 'react';
+import person1 from '../../../public/img/person1.png';
+import person2 from '../../../public/img/person2.png';
+import person3 from '../../../public/img/person3.png';
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    const data = [
-        'https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600',
-        'https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600',
-        'https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    ];
+    const data = [person2, person1, person3];
 
     const lastIndex = data.length - 1;
     const prevSlide = () => {

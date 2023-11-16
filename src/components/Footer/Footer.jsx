@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             <div className={styles.bottom}>
                 <div className={styles.left}>
-                    <span className={styles.logo}>Lamastore</span>
+                    <span className={styles.logo}>FedeStore</span>
                     <span className={styles.copyright}>
                         © Copyright 2021. All Rights Reserved
                     </span>
