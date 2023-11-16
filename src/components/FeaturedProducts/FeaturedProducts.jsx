@@ -13,7 +13,7 @@ const FeaturedProducts = ({ type }) => {
                 <p>
                     Renueva tu estilo con prendas cuidadosamente elegidas para
                     destacar en cualquier ocasión. Explora lo último en moda con
-                    nuestra exclusiva colección.
+                    nuestra exclusiva colección {type} products
                 </p>
             </div>
             <div className={styles.bottom}>

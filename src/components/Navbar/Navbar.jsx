@@ -80,7 +80,7 @@ const Navbar = () => {
                     </div>
                     <div className={styles.center}>
                         <Link className="link" to="/">
-                            LAMASTORE
+                            FedeStore
                         </Link>
                     </div>
                     <div className={styles.right}>
