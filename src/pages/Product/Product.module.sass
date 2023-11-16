@@ -116,13 +116,32 @@
 
         .left
             flex-direction: column
+            height: auto
 
             .images
                 display: flex
                 flex-direction: row
+                flex-wrap: wrap
                 justify-content: center
                 gap: 40px
                 overflow: hidden
+                width: 100%
+                height: auto
+                flex: 4
                 img
                     width: 150px
+                    clip-path: none
                     height: 150px
+            .mainImg
+                img
+                    width: 350px
+                    max-width: 90%
+
+@media screen and (max-width: 768px)
+    .product
+        .left
+            .images
+                flex-direction: column
+
+                img
+                    width: 110px
