@@ -19,7 +19,7 @@ const Product = () => {
 
     const img1 = data?.attributes?.img?.data?.attributes?.url || '';
 
-    const img2 = data?.attributes?.img2?.data?.attributes?.url || '';
+    const img2 = data?.attributes?.img2?.data?.attributes?.url || img1;
 
     const imgSelected =
         data?.attributes?.[selectedImg].data?.attributes?.url || '';

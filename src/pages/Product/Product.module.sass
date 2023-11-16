@@ -123,25 +123,31 @@
                 flex-direction: row
                 flex-wrap: wrap
                 justify-content: center
-                gap: 40px
+                gap: 30px
                 overflow: hidden
                 width: 100%
                 height: auto
-                flex: 4
+                flex: none
                 img
                     width: 150px
                     clip-path: none
                     height: 150px
             .mainImg
+                flex: none
+                width: 350px
+                max-width: 90%
                 img
-                    width: 350px
-                    max-width: 90%
+                    width: 100%
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 488px)
     .product
+        padding: 60px 8px
         .left
+            margin: 5px
             .images
-                flex-direction: column
-
+                gap: 5px
+                flex: none
+                justify-content: start
                 img
-                    width: 110px
+                    width: 100px
+                    height: 100px
