@@ -28,6 +28,11 @@ const Products = () => {
 
     return (
         <div className={styles.products}>
+            <img
+                src="https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                className={styles.catImg}
+                alt=""
+            />
             <div className={styles.left}>
                 <h2>Product Categories</h2>
                 <div className={styles.filterItem}>
@@ -89,11 +94,7 @@ const Products = () => {
                 </div>
             </div>
             <div className={styles.right}>
-                <img
-                    src="https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    className={styles.catImg}
-                    alt=""
-                />
+                {/* img */}
                 <List
                     catId={catId}
                     maxPrice={maxPrice}
