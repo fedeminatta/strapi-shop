@@ -6,8 +6,8 @@ import useFetch from '../../hooks/useFetch';
 
 const Products = () => {
     const catId = parseInt(useParams().id);
-    const [maxPrice, setMaxPrice] = useState(300);
-    const [tempMaxPrice, setTempMaxPrice] = useState(300);
+    const [maxPrice, setMaxPrice] = useState(500);
+    const [tempMaxPrice, setTempMaxPrice] = useState(500);
     const [sort, setSort] = useState('desc');
     const [selectedSubCats, setSelectedSubCats] = useState([]);
 
@@ -57,7 +57,8 @@ const Products = () => {
                         <input
                             type="range"
                             min={0}
-                            max={300}
+                            max={500}
+                            style={{ width: '80%' }}
                             onChange={(e) => setTempMaxPrice(e.target.value)}
                         />
                         <span>{tempMaxPrice}</span>
