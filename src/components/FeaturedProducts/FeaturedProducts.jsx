@@ -2,6 +2,7 @@ import Card from '../Card/Card';
 import styles from './FeaturedProducts.module.sass';
 import useFetch from '../../hooks/useFetch';
 import { Slide } from 'react-awesome-reveal';
+import LoadCard from '../LoadCard/LoadCard';
 
 const FeaturedProducts = ({ type }) => {
     const { data, loading, error } = useFetch(
@@ -19,13 +20,13 @@ const FeaturedProducts = ({ type }) => {
                     </p>
                 </div>
                 <div className={styles.bottom}>
-                    {error
-                        ? 'Error'
-                        : loading
-                        ? 'Loading'
-                        : data.map((item) => (
-                              <Card item={item} key={item.id} />
-                          ))}
+                    {error ? (
+                        'Error'
+                    ) : loading ? (
+                        <LoadCard />
+                    ) : (
+                        data.map((item) => <Card item={item} key={item.id} />)
+                    )}
                 </div>
             </div>
         </Slide>

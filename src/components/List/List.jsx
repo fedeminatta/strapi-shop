@@ -1,6 +1,7 @@
 import styles from './List.module.sass';
 import Card from '../Card/Card';
 import useFetch from '../../hooks/useFetch';
+import LoadCard from '../LoadCard/LoadCard';
 
 const List = ({ subCats, maxPrice, sort, catId }) => {
     const subCatFilter = () => {
@@ -17,11 +18,13 @@ const List = ({ subCats, maxPrice, sort, catId }) => {
 
     return (
         <div className={styles.list}>
-            {error
-                ? 'error'
-                : loading
-                ? 'loading...'
-                : data?.map((item) => <Card item={item} key={item.id} />)}
+            {error ? (
+                'error'
+            ) : loading ? (
+                <LoadCard />
+            ) : (
+                data?.map((item) => <Card item={item} key={item.id} />)
+            )}
         </div>
     );
 };
