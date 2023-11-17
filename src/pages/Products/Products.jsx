@@ -29,8 +29,8 @@ const Products = () => {
     return (
         <div className={styles.products}>
             <div className={styles.left}>
+                <h2>Product Categories</h2>
                 <div className={styles.filterItem}>
-                    <h2>Product Categories</h2>
                     {data?.map((item) => (
                         <div className={styles.inputItem} key={item.id}>
                             <input
