@@ -2,27 +2,44 @@
     width: 230px
     display: flex
     flex-direction: column
-    gap: 10px
     margin-bottom: 50px
+    border-radius: 8px
+    transition: background .5s
+    overflow-x: hidden
+    &:hover
+        background: #e8e8e8
 
     .image
         width: 100%
         height: 400px
-        overflow: hidden
         position: relative
+        .secondImg
+            transform: translateY(5px)
+            z-index: 10
+            transition: all 300ms
+            filter: blur(5px)
         &:hover
             .secondImg
-                z-index: 2
+                transform: translateY(0)
+                z-index: 20
+                filter: blur(0)
+
+            .mainImg
+                transform: translateY(5px)
+                z-index: 10
+                filter: blur(5px)
 
         img
             width: 100%
             height: 100%
             object-fit: cover
             position: absolute
-            border-radius: 4px
 
         .mainImg
-            z-index: 1
+            transform: translateY(0)
+            z-index: 20
+            transition: all 300ms
+            filter: blur(0)
 
         span
             position: absolute
@@ -31,22 +48,33 @@
             background-color: #fff
             color: teal
             padding: 3px 5px
-            z-index: 3
+            z-index: 30
             font-weight: 600
             font-size: 14px
 
-    h2
-        font-size: 16px
-        font-weight: 400
+    .bottom
+        padding: 10px
+        border: 2px solid #e8e8e8
+        z-index: 3
+        padding-top: 0
+        border-radius: 8px
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+        border-top: 0
+        transition: all .3s
 
-    .prices
-        display: flex
-        gap: 20px
+        h2
+            font-size: 16px
+            font-weight: 600
 
-        h3
-            font-size: 18px
-            font-weight: 500
+        .prices
+            display: flex
+            gap: 20px
 
-        .oldPrice
-            text-decoration: line-through
-            color: gray
+            h3
+                font-size: 18px
+                font-weight: 500
+
+            .oldPrice
+                text-decoration: line-through
+                color: gray

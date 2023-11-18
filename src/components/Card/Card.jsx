@@ -21,12 +21,14 @@ const Card = ({ item }) => {
                         className={styles.secondImg}
                     />
                 </div>
-                <h2>{item?.attributes.title}</h2>
-                <div className={styles.prices}>
-                    <h3 className={styles.oldPrice}>
-                        ${item?.oldPrice || item?.attributes?.price + 20}
-                    </h3>
-                    <h3>${item?.attributes?.price}</h3>
+                <div className={styles.bottom}>
+                    <h2>{item?.attributes.title}</h2>
+                    <div className={styles.prices}>
+                        <h3 className={styles.oldPrice}>
+                            ${item?.oldPrice || item?.attributes?.price + 20}
+                        </h3>
+                        <h3>${item?.attributes?.price}</h3>
+                    </div>
                 </div>
             </div>
         </Link>
