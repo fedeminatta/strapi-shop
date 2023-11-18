@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import './app.sass';
 import Home from './pages/Home/Home';
 import Product from './pages/Product/Product';
 import Products from './pages/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import './app.sass';
 
 const Layout = () => {
     return (

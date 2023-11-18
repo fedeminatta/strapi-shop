@@ -19,15 +19,15 @@ const FeaturedProducts = ({ type }) => {
                         moda con nuestra exclusiva colección {type} products
                     </p>
                 </div>
-                <div className={styles.bottom}>
-                    {error ? (
-                        'Error'
-                    ) : loading ? (
-                        <LoadCard />
-                    ) : (
-                        data.map((item) => <Card item={item} key={item.id} />)
-                    )}
-                </div>
+            </div>
+            <div className={styles.bottom}>
+                {error ? (
+                    'Error'
+                ) : loading ? (
+                    <LoadCard />
+                ) : (
+                    data.map((item) => <Card item={item} key={item.id} />)
+                )}
             </div>
         </Slide>
     );
