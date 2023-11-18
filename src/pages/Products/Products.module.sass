@@ -25,6 +25,8 @@
                 margin-bottom: 10px
                 label
                     margin-left: 10px
+                input[type="range"]
+                    width: 80%
 
                 .btnPrice
                     display: block
@@ -51,6 +53,7 @@
     .products
         flex-direction: column
         gap: 20px
+        padding: 0
 
         .left
             position: static
@@ -59,3 +62,9 @@
             gap: 20px
             justify-content: center
             flex-wrap: wrap
+            padding: 20px
+
+@media screen and (max-width: 350px)
+    .inputItem
+        input[type="range"]
+            width: 60% !important

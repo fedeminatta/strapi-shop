@@ -58,7 +58,6 @@ const Products = () => {
                             type="range"
                             min={0}
                             max={500}
-                            style={{ width: '80%' }}
                             onChange={(e) => setTempMaxPrice(e.target.value)}
                         />
                         <span>{tempMaxPrice}</span>
