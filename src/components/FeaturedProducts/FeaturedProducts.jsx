@@ -24,7 +24,11 @@ const FeaturedProducts = ({ type }) => {
                 {error ? (
                     'Error'
                 ) : loading ? (
-                    <LoadCard />
+                    <>
+                        <LoadCard />
+                        <LoadCard />
+                        <LoadCard />
+                    </>
                 ) : (
                     data.map((item) => <Card item={item} key={item.id} />)
                 )}

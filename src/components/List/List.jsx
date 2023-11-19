@@ -21,7 +21,11 @@ const List = ({ subCats, maxPrice, sort, catId }) => {
             {error ? (
                 'error'
             ) : loading ? (
-                <LoadCard />
+                <>
+                    <LoadCard />
+                    <LoadCard />
+                    <LoadCard />
+                </>
             ) : (
                 data?.map((item) => <Card item={item} key={item.id} />)
             )}
